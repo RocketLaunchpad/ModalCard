@@ -39,7 +39,7 @@ class ModalCardPresentationController: UIPresentationController {
         }
         else {
             dimmingView = UIView(frame: .zero)
-            dimmingView.backgroundColor = UIColor(white: 0.33, alpha: 0.33)
+            dimmingView.backgroundColor = UIColor(white: 0, alpha: 0.33)
         }
         dimmingView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 
