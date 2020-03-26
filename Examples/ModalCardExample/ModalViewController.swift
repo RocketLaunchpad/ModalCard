@@ -34,4 +34,13 @@ class ModalViewController: UIViewController {
         super.awakeFromNib()
         modalCardController = ModalCardController(parent: self, modalHeight: 200)
     }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapGesture(recognizer:))))
+    }
+
+    @objc private func handleTapGesture(recognizer: UITapGestureRecognizer) {
+        modalCardController.dismissModal(animated: true)
+    }
 }

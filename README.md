@@ -15,6 +15,11 @@ class ModalViewController: UIViewController {
         super.awakeFromNib()
         modalCardController = ModalCardController(parent: self, modalHeight: 200)
     }
+
+    // To programmatically dismiss this modal
+    func dismissModal(animated: Bool) {
+        modalCardController.dismissModal(animated: animated)
+    }
 }
 ```
 

@@ -29,11 +29,16 @@ public class ModalCardController: NSObject, UIViewControllerTransitioningDelegat
 
     let modalHeight: CGFloat
 
+    private unowned let parent: UIViewController
+
     private let dismissPanGesturePercentageThreshold: CGFloat
 
     private let dismissTransition: UIPercentDrivenInteractiveTransition
 
+    private var programmaticDismissal = false
+
     public init(parent: UIViewController, modalHeight: CGFloat, dismissPanGesturePercentageThreshold: CGFloat = 0.33) {
+        self.parent = parent
         self.modalHeight = modalHeight
         self.dismissPanGesturePercentageThreshold = dismissPanGesturePercentageThreshold
         self.dismissTransition = ModalCardInteractiveDismissal(viewController: parent, dismissThreshold: dismissPanGesturePercentageThreshold)
@@ -54,7 +59,14 @@ public class ModalCardController: NSObject, UIViewControllerTransitioningDelegat
     }
 
     public func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        return programmaticDismissal ? nil : dismissTransition
+    }
 
-        return dismissTransition
+    public func dismissModal(animated: Bool, completion: (() -> Void)? = nil) {
+        programmaticDismissal = true
+        parent.dismiss(animated: animated) { [weak self] in
+            self?.programmaticDismissal = false
+            completion?()
+        }
     }
 }
