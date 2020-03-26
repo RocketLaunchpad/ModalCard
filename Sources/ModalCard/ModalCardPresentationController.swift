@@ -29,16 +29,22 @@ class ModalCardPresentationController: UIPresentationController {
 
     private let height: CGFloat
 
-    init(height: CGFloat, presentedViewController: UIViewController, presenting presentingViewController: UIViewController?) {
+    private let dimmingView: UIView
+
+    init(height: CGFloat, presentedViewController: UIViewController, presenting presentingViewController: UIViewController?, dimWithBlur: Bool = false) {
         self.height = height
+
+        if dimWithBlur {
+            dimmingView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
+        }
+        else {
+            dimmingView = UIView(frame: .zero)
+            dimmingView.backgroundColor = UIColor(white: 0.33, alpha: 0.33)
+        }
+        dimmingView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+
         super.init(presentedViewController: presentedViewController, presenting: presentingViewController)
     }
-
-    private let dimmingView: UIView = {
-        let v = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
-        v.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        return v
-    }()
 
     override var frameOfPresentedViewInContainerView: CGRect {
         let size = CGSize(width: presentingViewController.view.bounds.width, height: height)
