@@ -42,7 +42,7 @@ class ModalCardPresentationController: UIPresentationController {
 
     override var frameOfPresentedViewInContainerView: CGRect {
         let size = CGSize(width: presentingViewController.view.bounds.width, height: height)
-        let origin = CGPoint(x: 0, y: presentingViewController.view.bounds.height - size.height)
+        let origin = CGPoint(x: 0, y: UIScreen.main.bounds.height - size.height)
         return CGRect(origin: origin, size: size)
     }
 
