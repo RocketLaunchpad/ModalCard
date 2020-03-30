@@ -37,7 +37,12 @@ public class ModalCardController: NSObject, UIViewControllerTransitioningDelegat
 
     private var programmaticDismissal = false
 
-    public init(parent: UIViewController, modalHeight: CGFloat, dismissPanGesturePercentageThreshold: CGFloat = 0.33) {
+    public init(parent: UIViewController,
+                modalHeight: CGFloat,
+                dismissPanGesturePercentageThreshold: CGFloat = 0.33,
+                cornerRadius: CGFloat = 15,
+                roundedCorners: UIRectCorner = [.topLeft, .topRight]) {
+
         self.parent = parent
         self.modalHeight = modalHeight
         self.dismissPanGesturePercentageThreshold = dismissPanGesturePercentageThreshold
@@ -45,7 +50,11 @@ public class ModalCardController: NSObject, UIViewControllerTransitioningDelegat
 
         super.init()
 
-        parent.view.layer.cornerRadius = 15
+        let path = UIBezierPath(roundedRect: parent.view.bounds, byRoundingCorners: roundedCorners, cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        parent.view.layer.mask = mask
+
         parent.modalPresentationStyle = .custom
         parent.transitioningDelegate = self
     }

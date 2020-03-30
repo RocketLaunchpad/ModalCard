@@ -20,6 +20,8 @@
 		C52A635C22F71F7800A0F7BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C52A635A22F71F7800A0F7BA /* Main.storyboard */; };
 		C52A635E22F71F7900A0F7BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C52A635D22F71F7900A0F7BA /* Assets.xcassets */; };
 		C52A636122F71F7900A0F7BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C52A635F22F71F7900A0F7BA /* LaunchScreen.storyboard */; };
+		C6B4458A24329B6A00B4AAA1 /* ModalCard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C52A633322F71EB900A0F7BA /* ModalCard.framework */; };
+		C6B4458B24329B6A00B4AAA1 /* ModalCard.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C52A633322F71EB900A0F7BA /* ModalCard.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,7 +32,28 @@
 			remoteGlobalIDString = C52A633222F71EB900A0F7BA;
 			remoteInfo = ModalCard;
 		};
+		C6B4458C24329B6A00B4AAA1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C52A632A22F71EB900A0F7BA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C52A633222F71EB900A0F7BA;
+			remoteInfo = ModalCard;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C6B4458E24329B6A00B4AAA1 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C6B4458B24329B6A00B4AAA1 /* ModalCard.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		C51DA88B242C01C50052A287 /* ModalCardDismissAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalCardDismissAnimator.swift; sourceTree = "<group>"; };
@@ -73,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6B4458A24329B6A00B4AAA1 /* ModalCard.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +118,7 @@
 				C52A636622F71F7E00A0F7BA /* Examples */,
 				C52A633422F71EB900A0F7BA /* Products */,
 				7739DC5A4037647795B2ADFA /* Pods */,
+				C6B4458924329B6A00B4AAA1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -167,6 +192,13 @@
 			path = Examples;
 			sourceTree = "<group>";
 		};
+		C6B4458924329B6A00B4AAA1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -224,10 +256,12 @@
 				C52A635022F71F7800A0F7BA /* Sources */,
 				C52A635122F71F7800A0F7BA /* Frameworks */,
 				C52A635222F71F7800A0F7BA /* Resources */,
+				C6B4458E24329B6A00B4AAA1 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C6B4458D24329B6A00B4AAA1 /* PBXTargetDependency */,
 			);
 			name = ModalCardExample;
 			productName = ModalCardExample;
@@ -340,6 +374,11 @@
 			isa = PBXTargetDependency;
 			target = C52A633222F71EB900A0F7BA /* ModalCard */;
 			targetProxy = C52A633E22F71EB900A0F7BA /* PBXContainerItemProxy */;
+		};
+		C6B4458D24329B6A00B4AAA1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C52A633222F71EB900A0F7BA /* ModalCard */;
+			targetProxy = C6B4458C24329B6A00B4AAA1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
