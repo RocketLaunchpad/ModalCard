@@ -41,8 +41,5 @@ let package = Package(
         .target(
             name: "ModalCard",
             dependencies: []),
-        .testTarget(
-            name: "ModalCardTests",
-            dependencies: ["ModalCard"]),
     ]
 )

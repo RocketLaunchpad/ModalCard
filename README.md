@@ -25,9 +25,8 @@ class ModalViewController: UIViewController {
 
 ## Installation Instructions
 
-Add to your `Podfile`:
+Add the following to the dependencies in your `Package.swift` file:
 
+```swift
+.package(url: "https://github.com/RocketLaunchpad/ModalCard.git" from: "1.0.0")
 ```
-pod 'RIModalCard', :git => 'https://github.com/RocketLaunchpad/RIModalCard.git', :branch => 'master'
-```
-

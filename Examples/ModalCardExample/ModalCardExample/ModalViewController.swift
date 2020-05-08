@@ -1,6 +1,6 @@
 //
 //  ModalViewController.swift
-//  ModalCard
+//  ModalCardExample
 //
 //  Copyright (c) 2020 Rocket Insights, Inc.
 //

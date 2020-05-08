@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:ModalCard.xcodeproj">
+      location = "self:ModalCardExample.xcodeproj">
    </FileRef>
 </Workspace>
